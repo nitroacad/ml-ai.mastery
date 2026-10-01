@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 01: Foundations & Environment — ML-AI Mastery</title>
+  <meta name="description" content="Master the AI/ML landscape, roles, environment setups (uv, venv, conda), Jupyter notebooks, Git workflow, CLI, and reproducible engineering practices.">
+  <meta name="root-path" content="../../">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('ml_ai_theme');
+        var pref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', saved || pref);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <a href="../../index.html" class="logo-group">
+      <div class="logo-icon">⚡</div>
+      <span>ML-AI Mastery</span>
+    </a>
+
+    <div class="header-actions">
+      <button class="search-btn" aria-label="Search content">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search...</span>
+        <kbd class="search-kbd">⌘K</kbd>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">☀️</button>
+    </div>
+  </header>
+
+  <div class="site-shell">
+    <aside class="sidebar-nav">
+      <div class="nav-group">
+        <div class="nav-group-title">Module 01: Foundations</div>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="active">Overview</a></li>
+          <li class="nav-item"><a href="01-landscape-and-roles.html">01. AI/ML/DL Landscape</a></li>
+          <li class="nav-item"><a href="02-python-environments.html">02. Python Envs & Tooling</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main id="main-content" class="main-content">
+      <span class="badge badge-beginner">Module 01</span>
+      <h1>Foundations & Environment</h1>
+      <p style="font-size: var(--text-lg); color: var(--color-text-secondary);">
+        Establish a bulletproof foundation for your machine learning engineering career. Understand ecosystem roles, set up reproducible Python environments with <code>uv</code>, and master modern CLI & Git workflows.
+      </p>
+
+      <div class="card" style="margin: var(--space-6) 0;">
+        <h3>📌 Module Overview & Outcomes</h3>
+        <ul>
+          <li>Distinguish clearly between Data Science, ML Engineering, MLOps, and Research roles.</li>
+          <li>Configure fast, modern, isolated Python environments using <code>uv</code> and <code>pyproject.toml</code>.</li>
+          <li>Structure reproducible ML projects with deterministic dependency locking.</li>
+          <li>Master CLI tools and Git version control workflows for data artifacts.</li>
+        </ul>
+      </div>
+
+      <h2>Lessons in this Module</h2>
+      <div class="card-grid">
+        <a href="01-landscape-and-roles.html" class="card" style="text-decoration: none;">
+          <h4>01. The AI/ML/DL Landscape & Roles</h4>
+          <p style="font-size: var(--text-sm);">Taxonomy of artificial intelligence, machine learning, deep learning, and generative AI. Industry role expectations.</p>
+        </a>
+        <a href="02-python-environments.html" class="card" style="text-decoration: none;">
+          <h4>02. Modern Python Environments & Tooling</h4>
+          <p style="font-size: var(--text-sm);">Blazing-fast environment management with <code>uv</code>, virtual environments, Jupyter setup, and reproducibility.</p>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="../../assets/js/main.js"></script>
+</body>
+</html>

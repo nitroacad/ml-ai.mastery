@@ -1,0 +1,9 @@
+{
+  "name": "ML-AI Mastery",
+  "short_name": "ML-AI",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b0f19",
+  "theme_color": "#6366f1",
+  "description": "Complete tutorial website for AI/ML engineering."
+}

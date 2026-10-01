@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Foundations & Environment Overview",
+    "summary": "AI/ML/DL landscape, roles, Python environments (venv, uv), Jupyter, Git, CLI.",
+    "tags": ["foundations", "python", "git", "uv", "jupyter"],
+    "module": "01-foundations",
+    "url": "learn/01-foundations/index.html"
+  },
+  {
+    "title": "Math for ML Overview",
+    "summary": "Linear algebra, calculus & gradients, probability, statistics, information theory, optimization (SGD, Adam).",
+    "tags": ["math", "linear algebra", "calculus", "probability", "adam", "sgd"],
+    "module": "02-math-for-ml",
+    "url": "learn/02-math-for-ml/index.html"
+  },
+  {
+    "title": "Python for ML Overview",
+    "summary": "NumPy vectorization, pandas dataframes, Matplotlib/Seaborn visualization, performance, pytest.",
+    "tags": ["python", "numpy", "pandas", "matplotlib", "pytest"],
+    "module": "03-python-for-ml",
+    "url": "learn/03-python-for-ml/index.html"
+  },
+  {
+    "title": "Classical ML Overview",
+    "summary": "Linear/logistic regression, decision trees, random forests, XGBoost, SVM, kNN, PCA, clustering.",
+    "tags": ["classical ml", "regression", "trees", "xgboost", "pca", "clustering"],
+    "module": "05-classical-ml",
+    "url": "learn/05-classical-ml/index.html"
+  },
+  {
+    "title": "RAG (Retrieval-Augmented Generation)",
+    "summary": "Chunking strategies, embeddings, vector DBs (FAISS, Chroma, pgvector), hybrid search, reranking.",
+    "tags": ["rag", "llm", "vector db", "embeddings", "faiss"],
+    "module": "13-rag",
+    "url": "learn/13-rag/index.html"
+  },
+  {
+    "title": "Serving & Deployment",
+    "summary": "FastAPI serving patterns, Docker containers, Kubernetes, vLLM, ONNX Runtime.",
+    "tags": ["deployment", "fastapi", "docker", "vllm", "onnx"],
+    "module": "21-serving-and-deployment",
+    "url": "learn/21-serving-and-deployment/index.html"
+  }
+]

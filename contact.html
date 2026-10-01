@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Newsletter — ML-AI Mastery</title>
+  <meta name="description" content="Get in touch with the ML-AI Mastery team or subscribe to our newsletter for AI/ML engineering tutorials.">
+  <link rel="canonical" href="https://nitroacad.github.io/ml-ai.mastery/contact.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/print.css">
+
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('ml_ai_theme');
+        var pref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', saved || pref);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <a href="index.html" class="logo-group">
+      <div class="logo-icon">⚡</div>
+      <span>ML-AI Mastery</span>
+    </a>
+
+    <div class="header-actions">
+      <button class="search-btn" aria-label="Search content">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search...</span>
+        <kbd class="search-kbd">⌘K</kbd>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">☀️</button>
+    </div>
+  </header>
+
+  <main id="main-content" class="landing-content" style="max-width: 700px;">
+    <h1 style="margin-top: var(--space-6);">Contact & Newsletter</h1>
+    <p>Have a question, feedback, or topic suggestion? Want to subscribe to monthly AI/ML engineering insights? Fill out the form below.</p>
+
+    <!-- THE ONLY FORM ON THE SITE -->
+    <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="card" style="margin-top: var(--space-6);">
+      <!-- Honeypot -->
+      <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" value="New ML-AI Mastery Submission">
+
+      <div style="margin-bottom: var(--space-4);">
+        <label for="name" style="display: block; font-weight: 600; margin-bottom: var(--space-2);">Your Name *</label>
+        <input type="text" id="name" name="name" required style="width: 100%; padding: var(--space-3); background: var(--color-bg-tertiary); border: 1px solid var(--color-border-medium); border-radius: var(--radius-md); color: var(--color-text-primary);">
+      </div>
+
+      <div style="margin-bottom: var(--space-4);">
+        <label for="email" style="display: block; font-weight: 600; margin-bottom: var(--space-2);">Email Address *</label>
+        <input type="email" id="email" name="email" required style="width: 100%; padding: var(--space-3); background: var(--color-bg-tertiary); border: 1px solid var(--color-border-medium); border-radius: var(--radius-md); color: var(--color-text-primary);">
+      </div>
+
+      <div style="margin-bottom: var(--space-4);">
+        <label for="topic" style="display: block; font-weight: 600; margin-bottom: var(--space-2);">Topic</label>
+        <select id="topic" name="topic" style="width: 100%; padding: var(--space-3); background: var(--color-bg-tertiary); border: 1px solid var(--color-border-medium); border-radius: var(--radius-md); color: var(--color-text-primary);">
+          <option value="General Question">General Question</option>
+          <option value="Newsletter Signup">Newsletter Signup Only</option>
+          <option value="Report Error">Report Error in Lesson</option>
+          <option value="Suggest Topic">Suggest New Topic</option>
+          <option value="Collaboration">Collaboration</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom: var(--space-4);">
+        <label for="message" style="display: block; font-weight: 600; margin-bottom: var(--space-2);">Message *</label>
+        <textarea id="message" name="message" rows="5" required style="width: 100%; padding: var(--space-3); background: var(--color-bg-tertiary); border: 1px solid var(--color-border-medium); border-radius: var(--radius-md); color: var(--color-text-primary);"></textarea>
+      </div>
+
+      <div style="margin-bottom: var(--space-6); display: flex; align-items: center; gap: var(--space-2);">
+        <input type="checkbox" id="newsletter" name="newsletter_opt_in" value="yes" checked style="width: 1.2rem; height: 1.2rem;">
+        <label for="newsletter" style="font-size: var(--text-sm); color: var(--color-text-secondary);">Subscribe to monthly AI/ML tutorials and newsletter</label>
+      </div>
+
+      <button type="submit" class="py-run-btn" style="width: 100%; justify-content: center; padding: var(--space-3); font-size: var(--text-base);">
+        Submit Message
+      </button>
+
+      <div id="form-status" aria-live="polite" style="margin-top: var(--space-4); text-align: center;"></div>
+    </form>
+  </main>
+
+  <footer style="background: var(--color-bg-secondary); border-top: 1px solid var(--color-border-subtle); padding: var(--space-8) var(--space-6); text-align: center; margin-top: var(--space-12);">
+    <p style="font-size: var(--text-sm); color: var(--color-text-muted);">© 2025 ML-AI Mastery. Open-source under MIT License.</p>
+  </footer>
+
+  <script type="module">
+    import { initTheme } from './assets/js/theme.js';
+    import { initNav } from './assets/js/nav.js';
+    import { initSearch } from './assets/js/search.js';
+    import { initForm } from './assets/js/form.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      initNav();
+      initSearch();
+      initForm();
+    });
+  </script>
+</body>
+</html>

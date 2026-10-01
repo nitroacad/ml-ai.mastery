@@ -1,0 +1,64 @@
+name: Deploy static site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate HTML, links and structure
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Forbid framework and backend files
+        run: |
+          set -e
+          if ls package.json package-lock.json yarn.lock pnpm-lock.yaml 2>/dev/null; then
+            echo "Build tooling files are not allowed in this repo"; exit 1
+          fi
+          if find . -path ./.git -prune -o \( -name "*.py" -o -name "*.php" -o -name "*.rb" -o -name "*.ts" -o -name "*.tsx" -o -name "*.jsx" -o -name "*.vue" -o -name "*.svelte" \) -print | grep -q .; then
+            echo "Only HTML, CSS and JavaScript are allowed"; exit 1
+          fi
+
+      - name: Check required files
+        run: |
+          for f in index.html contact.html 404.html sitemap.xml robots.txt .nojekyll; do
+            test -f "$f" || { echo "Missing $f"; exit 1; }
+          done
+
+      - name: Enforce a single form
+        run: |
+          count=$(grep -rIl --include="*.html" "<form" . | wc -l)
+          [ "$count" -le 1 ] || { echo "More than one page contains a <form>"; exit 1; }
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: validate
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
