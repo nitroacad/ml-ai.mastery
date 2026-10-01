@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AI/ML/DL Landscape & Roles — ML-AI Mastery</title>
+  <meta name="description" content="Understand the taxonomy of AI, ML, Deep Learning, and Generative AI alongside career roles in data science and engineering.">
+  <meta name="root-path" content="../../">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('ml_ai_theme');
+        var pref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', saved || pref);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <a href="../../index.html" class="logo-group">
+      <div class="logo-icon">⚡</div>
+      <span>ML-AI Mastery</span>
+    </a>
+
+    <div class="header-actions">
+      <button class="search-btn" aria-label="Search content">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search...</span>
+        <kbd class="search-kbd">⌘K</kbd>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">☀️</button>
+    </div>
+  </header>
+
+  <div class="site-shell">
+    <aside class="sidebar-nav">
+      <div class="nav-group">
+        <div class="nav-group-title">Module 01: Foundations</div>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html">Overview</a></li>
+          <li class="nav-item"><a href="01-landscape-and-roles.html" class="active">01. AI/ML/DL Landscape</a></li>
+          <li class="nav-item"><a href="02-python-environments.html">02. Python Envs & Tooling</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main id="main-content" class="main-content">
+      <!-- 1. Header Block -->
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4);">
+        <span class="badge badge-beginner">Beginner</span>
+        <span style="font-size: var(--text-xs); color: var(--color-text-muted);">⏱️ 15 min read</span>
+        <button class="mark-complete-btn search-btn" data-lesson-id="01-01">Mark as Complete</button>
+      </div>
+
+      <h1>01. The AI/ML/DL Landscape & Roles</h1>
+
+      <!-- 2. Learning Outcomes -->
+      <div class="card" style="margin-bottom: var(--space-6);">
+        <h3>🎯 Learning Outcomes</h3>
+        <ul>
+          <li>Define the hierarchy and boundaries between AI, Machine Learning, Deep Learning, and Generative AI.</li>
+          <li>Contrast the technical responsibilities of Data Scientists, Machine Learning Engineers, MLOps Engineers, and AI Application Developers.</li>
+          <li>Identify where production code requirements diverge from exploratory research notebooks.</li>
+        </ul>
+      </div>
+
+      <!-- 3. Why It Matters -->
+      <h2>Why It Matters</h2>
+      <p>
+        The AI industry is prone to terminology overlap. A clear understanding of technology boundaries prevents architectural missteps—such as building a complex deep learning model when a simple heuristic or linear regression is appropriate. Furthermore, clarity on industry roles helps developers target high-impact skills that align with real-world engineering teams.
+      </p>
+
+      <!-- 4. Concept Explanation -->
+      <h2>Taxonomy Hierarchy</h2>
+      <p>
+        Artificial Intelligence is the broad umbrella covering any system that mimics human intelligence. Machine Learning is a subset focused on learning patterns from data without explicit rules. Deep Learning uses multi-layered neural networks for unstructured data (vision, text, audio). Generative AI represents deep learning architectures capable of producing novel content.
+      </p>
+
+      <div class="card" style="background: var(--color-bg-tertiary); text-align: center; padding: var(--space-6);">
+        <pre style="font-family: var(--font-mono); font-size: var(--text-sm); line-height: 1.8; color: var(--color-accent-secondary);">
+┌──────────────────────────────────────────────────────────────┐
+│  ARTIFICIAL INTELLIGENCE (Expert Systems, Logic, Rules)       │
+│  ┌────────────────────────────────────────────────────────┐  │
+│  │  MACHINE LEARNING (Scikit-Learn, Trees, Regressions)   │  │
+│  │  ┌──────────────────────────────────────────────────┐  │  │
+│  │  │  DEEP LEARNING (PyTorch, Neural Nets, CNNs)      │  │  │
+│  │  │  ┌────────────────────────────────────────────┐ │  │  │
+│  │  │  │  GENERATIVE AI (Transformers, LLMs, Diffusion)│ │  │  │
+│  │  │  └────────────────────────────────────────────┘ │  │  │
+│  │  └──────────────────────────────────────────────────┘  │  │
+│  └────────────────────────────────────────────────────────┘  │
+└──────────────────────────────────────────────────────────────┘
+        </pre>
+      </div>
+
+      <h2>Industry Roles Comparison</h2>
+      <table style="width: 100%; border-collapse: collapse; margin: var(--space-6) 0;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--color-border-bright); text-align: left;">
+            <th style="padding: var(--space-2);">Role</th>
+            <th style="padding: var(--space-2);">Primary Focus</th>
+            <th style="padding: var(--space-2);">Key Tech Stack</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--color-border-subtle);">
+            <td style="padding: var(--space-2);"><strong>Data Scientist</strong></td>
+            <td style="padding: var(--space-2);">Insight discovery, hypothesis testing, EDA</td>
+            <td style="padding: var(--space-2);">pandas, SQL, R, Statsmodels</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--color-border-subtle);">
+            <td style="padding: var(--space-2);"><strong>ML Engineer</strong></td>
+            <td style="padding: var(--space-2);">Model architecture, training pipelines, latency</td>
+            <td style="padding: var(--space-2);">PyTorch, XGBoost, CUDA, C++</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--color-border-subtle);">
+            <td style="padding: var(--space-2);"><strong>MLOps Engineer</strong></td>
+            <td style="padding: var(--space-2);">Deployment, CI/CD, drift monitoring, infrastructure</td>
+            <td style="padding: var(--space-2);">Docker, Kubernetes, MLflow, FastAPI</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 5. Hands-on Code -->
+      <h2>Hands-on Code: Inspecting AI Domain Task Types</h2>
+      <p>Try running this Python cell directly in your browser using Pyodide:</p>
+
+      <div class="py-cell">
+        <textarea class="py-editor">
+import numpy as np
+
+# Simulate model inference latency vs accuracy trade-offs across AI paradigms
+paradigms = ['Linear Model', 'Random Forest', 'Deep Neural Net', 'LLM (7B)']
+latencies_ms = [0.2, 5.1, 45.0, 850.0]  # Latency in milliseconds
+accuracies = [0.72, 0.86, 0.93, 0.97]
+
+print("=== AI Paradigm Profile Comparison ===")
+for p, l, a in zip(paradigms, latencies_ms, accuracies):
+    print(f"[{p:20s}] Latency: {l:6.1f} ms | Accuracy: {a*100:.1f}%")
+        </textarea>
+        <div class="py-actions">
+          <button class="py-run-btn">▶ Run in Browser (Pyodide)</button>
+        </div>
+        <div class="py-output">Click 'Run in Browser' to execute Python code via WebAssembly...</div>
+      </div>
+
+      <!-- 6. Exercise -->
+      <h2>Worked Exercise</h2>
+      <p><strong>Scenario:</strong> You are designing an automated customer support system that must route incoming tickets within 50ms while maintaining 90%+ accuracy. Which role and paradigm combination should lead this solution design?</p>
+
+      <details class="card" style="margin: var(--space-4) 0;">
+        <summary style="font-weight: 600; cursor: pointer;">Show Solution</summary>
+        <p style="margin-top: var(--space-3);">
+          <strong>Answer:</strong> An ML Engineer leading a Classical ML or distilled Deep Learning approach (such as TF-IDF + Gradient Boosted Decision Trees or a small DistilBERT model optimized via ONNX). An LLM API call typically exceeds 500ms, making it unsuitable for a 50ms SLA without stream-caching.
+        </p>
+      </details>
+
+      <!-- 7. Common Mistakes -->
+      <div class="callout callout-warning">
+        <div class="callout-title">⚠️ Common Mistake</div>
+        <p>Using complex Deep Learning or LLM APIs for structured tabular business problems where XGBoost provides faster execution, better explainability, and superior accuracy.</p>
+      </div>
+
+      <!-- 8. Production Notes -->
+      <div class="callout callout-prod">
+        <div class="callout-title">🚀 Production Tip</div>
+        <p>Always build a simple linear baseline model first. Measure its performance and latency SLAs before introducing neural networks or GenAI services.</p>
+      </div>
+
+      <!-- 9. Self-Check Quiz -->
+      <div class="quiz-container" data-answer="1">
+        <h3>Self-Check Quiz</h3>
+        <p>Which technology subset deals specifically with multi-layered artificial neural networks designed for unstructured data like images and raw text?</p>
+        <div class="quiz-option">Machine Learning</div>
+        <div class="quiz-option">Deep Learning</div>
+        <div class="quiz-option">Expert Systems</div>
+        <div class="quiz-option">Symbolic AI</div>
+        <div class="quiz-feedback" data-explanation="Deep learning utilizes multi-layered neural networks (like CNNs and Transformers) to automatically learn hierarchical features from unstructured data."></div>
+      </div>
+
+      <!-- 10. Takeaways & Navigation -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--color-border-subtle);">
+        <a href="index.html" class="search-btn">← Module Overview</a>
+        <a href="02-python-environments.html" class="py-run-btn" style="text-decoration: none;">Next: Python Envs & Tooling →</a>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+/* Print CSS Rules */
+@media print {
+  /* Hide navigation, sidebars, TOC, footers, search, theme toggles, and interactive widgets */
+  .site-header,
+  .sidebar-nav,
+  .toc-aside,
+  .menu-toggle,
+  .theme-toggle,
+  .search-btn,
+  .search-modal,
+  .py-actions,
+  .code-copy-btn,
+  .quiz-container,
+  footer {
+    display: none !important;
+  }
+
+  /* Reset shell layout for full-width print */
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  .site-shell {
+    display: block !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .main-content, .landing-content {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Code block formatting for print */
+  pre, code {
+    background: #f4f4f5 !important;
+    color: #000000 !important;
+    border: 1px solid #cccccc !important;
+    page-break-inside: avoid;
+    white-space: pre-wrap !important;
+  }
+
+  a {
+    color: #000000 !important;
+    text-decoration: underline !important;
+  }
+
+  /* Append link URLs after links except for anchors */
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+    color: #000000 !important;
+  }
+
+  .card, .callout {
+    border: 1px solid #cccccc !important;
+    background: #ffffff !important;
+    page-break-inside: avoid;
+  }
+}

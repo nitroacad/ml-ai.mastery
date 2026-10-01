@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Python Environments & Tooling — ML-AI Mastery</title>
+  <meta name="description" content="Master fast Python virtual environments with uv, conda, and venv, set up Jupyter, and achieve deterministic ML project reproducibility.">
+  <meta name="root-path" content="../../">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('ml_ai_theme');
+        var pref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', saved || pref);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <a href="../../index.html" class="logo-group">
+      <div class="logo-icon">⚡</div>
+      <span>ML-AI Mastery</span>
+    </a>
+
+    <div class="header-actions">
+      <button class="search-btn" aria-label="Search content">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search...</span>
+        <kbd class="search-kbd">⌘K</kbd>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">☀️</button>
+    </div>
+  </header>
+
+  <div class="site-shell">
+    <aside class="sidebar-nav">
+      <div class="nav-group">
+        <div class="nav-group-title">Module 01: Foundations</div>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html">Overview</a></li>
+          <li class="nav-item"><a href="01-landscape-and-roles.html">01. AI/ML/DL Landscape</a></li>
+          <li class="nav-item"><a href="02-python-environments.html" class="active">02. Python Envs & Tooling</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main id="main-content" class="main-content">
+      <!-- 1. Header Block -->
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4);">
+        <span class="badge badge-beginner">Beginner</span>
+        <span style="font-size: var(--text-xs); color: var(--color-text-muted);">⏱️ 20 min read</span>
+        <button class="mark-complete-btn search-btn" data-lesson-id="01-02">Mark as Complete</button>
+      </div>
+
+      <h1>02. Modern Python Environments & Tooling</h1>
+
+      <!-- 2. Learning Outcomes -->
+      <div class="card" style="margin-bottom: var(--space-6);">
+        <h3>🎯 Learning Outcomes</h3>
+        <ul>
+          <li>Build lightning-fast virtual environments using <code>uv</code> (10-100x faster than standard pip/conda).</li>
+          <li>Understand <code>pyproject.toml</code> and deterministic lockfiles (<code>uv.lock</code>).</li>
+          <li>Configure Jupyter kernel management linked directly to active virtual environments.</li>
+        </ul>
+      </div>
+
+      <!-- 3. Why It Matters -->
+      <h2>Why It Matters</h2>
+      <p>
+        "It worked on my local machine" is the primary cause of model deployment failures. Differing package versions (e.g., PyTorch 2.0 vs 2.1) alter model execution behavior or C++ CUDA bindings. Deterministic environment setup is mandatory for high-velocity machine learning production teams.
+      </p>
+
+      <!-- 4. Concept Explanation -->
+      <h2>The Shift to Blazing-Fast Python Tooling: <code>uv</code></h2>
+      <p>
+        Historically, Python developers relied on <code>virtualenv</code>, <code>pip</code>, or <code>conda</code>. Modern ML engineering uses <strong>uv</strong>—an extremely fast Python package installer and resolver written in Rust. It serves as a drop-in replacement for pip and virtualenv while automatically managing underlying Python interpreter binaries.
+      </p>
+
+      <!-- 5. Hands-on Code -->
+      <h2>Hands-on Code: Setting Up an ML Project with <code>uv</code></h2>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span>BASH</span>
+          <button class="code-copy-btn">Copy</button>
+        </div>
+        <pre><code class="language-bash"># Install uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Create a new ML project directory
+uv init my-ml-service
+cd my-ml-service
+
+# Create and activate a virtual environment with Python 3.11
+uv venv --python 3.11
+source .venv/bin/activate
+
+# Add core ML dependencies (installs and updates pyproject.toml automatically)
+uv add numpy pandas scikit-learn torch
+
+# Run a script deterministically
+uv run python main.py</code></pre>
+      </div>
+
+      <h2>Verifying Package Versions in Python</h2>
+      <div class="py-cell">
+        <textarea class="py-editor">
+import numpy as np
+import pandas as pd
+import sklearn
+
+print(f"NumPy Version:   {np.__version__}")
+print(f"Pandas Version:  {pd.__version__}")
+print(f"Scikit-Learn:    {sklearn.__version__}")
+
+# Verify SIMD hardware acceleration in NumPy
+print("NumPy Configuration SIMD support:", np.__config__.show())
+        </textarea>
+        <div class="py-actions">
+          <button class="py-run-btn">▶ Run in Browser (Pyodide)</button>
+        </div>
+        <div class="py-output">Click 'Run in Browser' to execute Python code via WebAssembly...</div>
+      </div>
+
+      <!-- 7. Common Mistakes -->
+      <div class="callout callout-warning">
+        <div class="callout-title">⚠️ Common Mistake</div>
+        <p>Installing packages globally into the system Python environment (<code>/usr/bin/python</code>). This pollutes system libraries and causes dependency conflicts across projects.</p>
+      </div>
+
+      <!-- 8. Production Notes -->
+      <div class="callout callout-prod">
+        <div class="callout-title">🚀 Production Tip</div>
+        <p>Always commit your lockfile (e.g., <code>uv.lock</code> or <code>requirements.txt</code> pinned with exact hashes) into Git. Never use unpinned dependencies in production Docker images.</p>
+      </div>
+
+      <!-- 9. Self-Check Quiz -->
+      <div class="quiz-container" data-answer="2">
+        <h3>Self-Check Quiz</h3>
+        <p>What is the main advantage of using lockfiles like <code>uv.lock</code> in a machine learning repository?</p>
+        <div class="quiz-option">They speed up Python code execution at runtime.</div>
+        <div class="quiz-option">They compile Python code into C++ binaries.</div>
+        <div class="quiz-option">They guarantee exact, deterministic dependency resolution across all developer machines and CI/CD pipelines.</div>
+        <div class="quiz-option">They automatically convert Jupyter notebooks into REST APIs.</div>
+        <div class="quiz-feedback" data-explanation="Lockfiles record the exact versions and hashes of all transitive dependencies, ensuring reproducible environments everywhere."></div>
+      </div>
+
+      <!-- 10. Takeaways & Navigation -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--color-border-subtle);">
+        <a href="01-landscape-and-roles.html" class="search-btn">← Previous Lesson</a>
+        <a href="../02-math-for-ml/index.html" class="py-run-btn" style="text-decoration: none;">Next Module: Math for ML →</a>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="../../assets/js/main.js"></script>
+</body>
+</html>

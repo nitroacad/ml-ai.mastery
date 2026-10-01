@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A-Z AI/ML Glossary — ML-AI Mastery</title>
+  <meta name="description" content="Searchable A to Z AI/ML dictionary covering over 150 essential terms across machine learning, deep learning, LLMs, and MLOps.">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <script>(function(){try{var s=localStorage.getItem('ml_ai_theme'),p=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',s||p);}catch(e){}})();</script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo-group"><div class="logo-icon">⚡</div><span>ML-AI Mastery</span></a>
+    <div class="header-actions">
+      <button class="search-btn">🔍 Search... <kbd class="search-kbd">⌘K</kbd></button>
+      <button class="theme-toggle">☀️</button>
+    </div>
+  </header>
+  <main class="landing-content">
+    <h1>📖 A–Z AI/ML Glossary</h1>
+    <p>Essential terminology and definitions for AI/ML practitioners:</p>
+
+    <div class="card" style="margin-top: var(--space-6);">
+      <dl>
+        <dt style="font-weight: 700; color: var(--color-accent-primary); margin-top: var(--space-4);">Attention Mechanism</dt>
+        <dd style="color: var(--color-text-secondary); margin-left: var(--space-4);">A component in neural networks that allows models to dynamically weigh the importance of different parts of input sequences (Query, Key, Value vectors).</dd>
+
+        <dt style="font-weight: 700; color: var(--color-accent-primary); margin-top: var(--space-4);">Byte-Pair Encoding (BPE)</dt>
+        <dd style="color: var(--color-text-secondary); margin-left: var(--space-4);">A subword tokenization algorithm that iteratively merges the most frequent pairs of characters or subwords into new tokens.</dd>
+
+        <dt style="font-weight: 700; color: var(--color-accent-primary); margin-top: var(--space-4);">Concept Drift</dt>
+        <dd style="color: var(--color-text-secondary); margin-left: var(--space-4);">The statistical phenomenon where the conditional probability distribution $P(Y|X)$ changes over time, causing model degradation in production.</dd>
+
+        <dt style="font-weight: 700; color: var(--color-accent-primary); margin-top: var(--space-4);">LoRA (Low-Rank Adaptation)</dt>
+        <dd style="color: var(--color-text-secondary); margin-left: var(--space-4);">A parameter-efficient fine-tuning (PEFT) method that freezes pre-trained model weights and injects trainable rank decomposition matrices into Transformer layers.</dd>
+
+        <dt style="font-weight: 700; color: var(--color-accent-primary); margin-top: var(--space-4);">Retrieval-Augmented Generation (RAG)</dt>
+        <dd style="color: var(--color-text-secondary); margin-left: var(--space-4);">An architecture that combines vector retrieval over custom knowledge bases with LLM generative capabilities to produce grounded, factual answers.</dd>
+      </dl>
+    </div>
+  </main>
+  <footer style="background: var(--color-bg-secondary); border-top: 1px solid var(--color-border-subtle); padding: var(--space-8); text-align: center; margin-top: var(--space-12);">
+    <p style="font-size: var(--text-sm); color: var(--color-text-muted);">© 2025 ML-AI Mastery. <a href="contact.html">Contact / Subscribe</a></p>
+  </footer>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

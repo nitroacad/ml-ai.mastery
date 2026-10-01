@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decision Trees, Random Forests & XGBoost — ML-AI Mastery</title>
+  <meta name="description" content="Master decision tree split criteria, bagging in Random Forests, and gradient boosting algorithms like XGBoost, LightGBM, and CatBoost.">
+  <meta name="root-path" content="../../">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/print.css">
+
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('ml_ai_theme');
+        var pref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', saved || pref);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <a href="../../index.html" class="logo-group">
+      <div class="logo-icon">⚡</div>
+      <span>ML-AI Mastery</span>
+    </a>
+
+    <div class="header-actions">
+      <button class="search-btn" aria-label="Search content">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <span>Search...</span>
+        <kbd class="search-kbd">⌘K</kbd>
+      </button>
+      <button class="theme-toggle" aria-label="Toggle theme">☀️</button>
+    </div>
+  </header>
+
+  <div class="site-shell">
+    <aside class="sidebar-nav">
+      <div class="nav-group">
+        <div class="nav-group-title">Module 05: Classical ML</div>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html">Overview</a></li>
+          <li class="nav-item"><a href="01-linear-regression.html">01. Linear Regression</a></li>
+          <li class="nav-item"><a href="02-decision-trees-and-trees.html" class="active">02. Decision Trees & Ensembles</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main id="main-content" class="main-content">
+      <!-- 1. Header Block -->
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4);">
+        <span class="badge badge-intermediate">Intermediate</span>
+        <span style="font-size: var(--text-xs); color: var(--color-text-muted);">⏱️ 30 min read</span>
+        <button class="mark-complete-btn search-btn" data-lesson-id="05-02">Mark as Complete</button>
+      </div>
+
+      <h1>02. Decision Trees, Random Forests & XGBoost</h1>
+
+      <!-- 2. Learning Outcomes -->
+      <div class="card" style="margin-bottom: var(--space-6);">
+        <h3>🎯 Learning Outcomes</h3>
+        <ul>
+          <li>Calculate Gini Impurity and Entropy for decision tree node splitting.</li>
+          <li>Distinguish Bagging (Bootstrap Aggregating in Random Forests) from Boosting (Gradient Boosting).</li>
+          <li>Train and tune Random Forests and Gradient Boosted Trees using Scikit-Learn.</li>
+        </ul>
+      </div>
+
+      <!-- 3. Why It Matters -->
+      <h2>Why It Matters</h2>
+      <p>
+        Tree ensemble methods (Random Forest, XGBoost, LightGBM) dominate tabular data competitions and production systems. They handle non-linear feature interactions out of the box, require minimal feature scaling, and provide high predictive performance with robust default parameters.
+      </p>
+
+      <!-- 4. Concept Explanation -->
+      <h2>Decision Trees & Split Criteria</h2>
+      <p>
+        A decision tree splits data recursively into binary branches. For classification, Gini Impurity measures node randomness:
+      </p>
+      <div style="text-align: center; margin: var(--space-4) 0; font-size: var(--text-lg); font-family: var(--font-mono);">
+        Gini = 1 - Σ (p_i)²
+      </div>
+
+      <h2>Bagging vs Boosting</h2>
+      <ul>
+        <li><strong>Bagging (Random Forest):</strong> Trains multiple decision trees in parallel on random bootstrap subsets of data and feature subsamples. Reduces model variance.</li>
+        <li><strong>Boosting (XGBoost/LightGBM):</strong> Trains decision trees sequentially. Each new tree fits on the residual errors (pseudo-residuals) of prior trees. Reduces model bias.</li>
+      </ul>
+
+      <!-- 5. Hands-on Code -->
+      <h2>Hands-on Code: Comparing Decision Trees and Random Forests</h2>
+
+      <div class="py-cell">
+        <textarea class="py-editor">
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+from sklearn.metrics import accuracy_score
+
+# Load Iris dataset
+X, y = load_iris(return_X_y=True)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Train single Decision Tree
+dt = DecisionTreeClassifier(max_depth=3, random_state=42)
+dt.fit(X_train, y_train)
+dt_acc = accuracy_score(y_test, dt.predict(X_test))
+
+# Train Random Forest (Bagging)
+rf = RandomForestClassifier(n_estimators=50, random_state=42)
+rf.fit(X_train, y_train)
+rf_acc = accuracy_score(y_test, rf.predict(X_test))
+
+# Train Gradient Boosting (Boosting)
+gb = GradientBoostingClassifier(n_estimators=50, learning_rate=0.1, random_state=42)
+gb.fit(X_train, y_train)
+gb_acc = accuracy_score(y_test, gb.predict(X_test))
+
+print("=== Classification Model Accuracy Comparison ===")
+print(f"Single Decision Tree:  {dt_acc * 100:.2f}%")
+print(f"Random Forest (50):    {rf_acc * 100:.2f}%")
+print(f"Gradient Boosting:     {gb_acc * 100:.2f}%")
+        </textarea>
+        <div class="py-actions">
+          <button class="py-run-btn">▶ Run in Browser (Pyodide)</button>
+        </div>
+        <div class="py-output">Click 'Run in Browser' to execute Python code via WebAssembly...</div>
+      </div>
+
+      <!-- 7. Common Mistakes -->
+      <div class="callout callout-warning">
+        <div class="callout-title">⚠️ Common Mistake</div>
+        <p>Allowing a single decision tree to grow without a <code>max_depth</code> restriction, leading to severe overfitting where every training leaf contains a single sample.</p>
+      </div>
+
+      <!-- 8. Production Notes -->
+      <div class="callout callout-prod">
+        <div class="callout-title">🚀 Production Tip</div>
+        <p>Use LightGBM or CatBoost when dealing with millions of tabular rows or high-cardinality categorical features; both run significantly faster than standard Scikit-Learn ensembles.</p>
+      </div>
+
+      <!-- 9. Self-Check Quiz -->
+      <div class="quiz-container" data-answer="2">
+        <h3>Self-Check Quiz</h3>
+        <p>How does Gradient Boosting differ fundamentally from Random Forest bagging?</p>
+        <div class="quiz-option">Gradient Boosting builds trees independently in parallel.</div>
+        <div class="quiz-option">Gradient Boosting uses deep unpruned trees to maximize variance.</div>
+        <div class="quiz-option">Gradient Boosting builds trees sequentially, with each new tree attempting to correct residual errors from previous trees.</div>
+        <div class="quiz-option">Gradient Boosting eliminates the need for target labels.</div>
+        <div class="quiz-feedback" data-explanation="Boosting is a sequential ensemble process where each tree minimizes the loss function relative to residual errors left by prior trees."></div>
+      </div>
+
+      <!-- 10. Takeaways & Navigation -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--color-border-subtle);">
+        <a href="01-linear-regression.html" class="search-btn">← Previous Lesson</a>
+        <a href="../../index.html" class="py-run-btn" style="text-decoration: none;">Return to Home →</a>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="../../assets/js/main.js"></script>
+</body>
+</html>
